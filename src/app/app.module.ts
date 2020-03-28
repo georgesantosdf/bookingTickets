@@ -12,6 +12,7 @@ import { AddressFormComponent } from './shared/address-form/address-form.compone
 import { CreateReservationService } from './create-reservation/create-reservation.service';
 import { AddressFormService } from './shared/address-form/address-form.service';
 import { ErrorFormComponent } from './shared/erro-form/error-form.component';
+import { CampoErroFormComponent } from './shared/campo-erro-form/campo-erro-form.component';
 
 
 
@@ -20,7 +21,8 @@ import { ErrorFormComponent } from './shared/erro-form/error-form.component';
     AppComponent,
     CreateReservationComponent,
     AddressFormComponent,
-    ErrorFormComponent
+    ErrorFormComponent,
+    CampoErroFormComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { ErrorFormComponent } from './shared/erro-form/error-form.component';
   exports: [
     ErrorFormComponent
   ],
-  providers: [CreateReservationService,
+  providers: [CreateReservationService ,
               AddressFormService],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Reservation} from '../util/reservation';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import {Reservation} from '../entities/reservation';
 import { environment } from '../../environments/environment';
+import { Movie } from '../entities/movie';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,17 @@ export class CreateReservationService {
 
   constructor(private http: HttpClient) { }
 
-  private create(reservation) {
+  createReservation(reservation:Reservation) {
    return this.http.post(this.API, reservation);
  }
 
-  private getMovieDB(){
-    return this.http.get(this.API_MOVIE_DB);
+  getMovieDB(language:string, page:string){
+    let options: HttpParams = new HttpParams();
+    options = options.set("api_key", "123499d790e577da59a10ae44cf534d5");
+    options = options.set("language", language);
+    options = options.set("page", page);
+
+    return this.http.get<Movie[]>(this.API_MOVIE_DB, { params: options, observe: 'response' });
+  
   }
 }

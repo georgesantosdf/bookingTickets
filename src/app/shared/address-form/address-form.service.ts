@@ -1,20 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
-import { Address } from 'src/app/util/address';
+import { Address } from 'src/app/entities/address';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressFormService {
 
-  private readonly API = `${environment.API_CEP}cep`;
+  private readonly API_CEP = `${environment.API_CEP}cep`;
 
    constructor(private http: HttpClient) { }
 
-  getUser(id){
-    return this.http.get(`${this.API}/${id}`);
-  }
 
+  consultaCEP(cep, resetaFormCallback, formulario) {
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != '') {
+      var validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+        resetaFormCallback(formulario);
+
+        return this.http
+          .get(`${this.API_CEP}/${cep}`);
+      }
+    }
+  }
 }

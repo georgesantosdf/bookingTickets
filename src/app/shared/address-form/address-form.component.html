@@ -1,16 +1,21 @@
-<form class="mt-5" [formGroup]="form">
-    <div class="input-group">
-        <input type="text" id="cep" [(ngModel)]="address.cep" class="validate" placeholder="CEP" formControlName='cep'>
-        <app-error-msg [control]="form.get('cep')" label="CEP"></app-error-msg>
+<form class="mt-5" formGroupName="address">
+    <div class="input-group" >
+        <input type="text" class="form-control" id="cep"
+        formControlName="cep" placeholder="CEP"
+        (blur)="consultaCEP()">
+        <!--<app-campo-erro-form 
+            [mostrarErro]="verificaValidTouched()" 
+            msgErro="CEP é obrigatório.">
+        </app-campo-erro-form>-->
     </div>
-    <input type="text" id="address" [(ngModel)]="address.address" class="validate" placeholder="Endereço" formControlName='address'>
+    <input type="text" id="address" class="validate" placeholder="Endereço" formControlName='address'>
     <div class="row">
         <div class="col-6">
-            <input type="text" id="country" [(ngModel)]="address.country" class="validate" placeholder="País" formControlName='country'>
+            <input type="text" id="country" class="validate" placeholder="País" formControlName='country'>
         </div>
         <div class="col-6">
-            <input type="text" id="state" [(ngModel)]="address.state" class="validate" placeholder="Estado" formControlName='state'>
+            <input type="text" id="state"  class="validate" placeholder="Estado" formControlName='state'>
         </div>
     </div>
-    <input type="text" id="telephone"  [(ngModel)]="address.telephone" class="validate" placeholder="Telefone" formControlName='telephone'>
+    <input type="text" id="telephone"  class="validate" placeholder="Telefone" formControlName='telephone'>
 </form>

@@ -4,34 +4,33 @@
         <h3 class="text-left">FORMULÀRIO</h3>
         <div class="row">
             <div class="col-6">
-                <form class="mt-5" [formGroup]="form">
+                <form class="mt-5" [formGroup]="form" (ngSubmit)="enviarDados()">
                     <p>DADOS PESSOAIS</p>
                     <div class="row">
                         <div class="col-6">
                            <span>Nome</span>
-                            <input type="text" id="name" [(ngModel)]="reservation.name" class="validate" placeholder="Nome" formControlName='name'>
+                            <input type="text" id="name"  class="validate" placeholder="Nome" formControlName='name'>
                             <app-error-form [control]="form.get('name')" label="Nome"></app-error-form>
                         </div>
                         <div class="col-6">
                             <span>Último Nome</span>
-                            <input type="text" id="lastName" [(ngModel)]="reservation.lastName" class="validate" placeholder="Último Nome" formControlName='lastName'>
+                            <input type="text" id="lastName"  class="validate" placeholder="Último Nome" formControlName='lastName'>
                             <app-error-form [control]="form.get('lastName')" label="Último Nome"></app-error-form>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf'>
-                            <app-error-msg [control]="form.get('cpf')" label="CPF"></app-error-msg>
+                            <app-error-form [control]="form.get('cpf')" label="CPF"></app-error-form>
                         </div>
                         <div class="col-6">
                             <input type="date" id="birthDate" class="validate" placeholder="Data de Nascimento" formControlName='birthDate' >
-                            <app-error-msg [control]="form.get('birthDate')" label="CPF"></app-error-msg>
+                            <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <input type="email" id="email"  [(ngModel)]="reservation.email" class="validate" placeholder="nome@email.com" formControlName="email"
-                        [class.invalid]="form.controls['email'].touched && !form.controls['email'].valid">
-                        <app-error-msg [control]="form.get('email')" label="Email"></app-error-msg>
+                    <div class="input-group" [ngClass]="aplicaCssErro('email')">
+                        <input type="email" id="email"  class="validate" placeholder="nome@email.com" formControlName="email">
+                        <app-error-form [control]="form.get('email')" label="Email"></app-error-form>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -43,21 +42,26 @@
                             <div class="row">
                                 <div class="col-6">
                                     <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
+                                    <app-error-form [control]="form.get('nameWife')" label="CPF"></app-error-form>
                                 </div>
                                 <div class="col-6">
                                     <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
+                                    <app-error-form [control]="form.get('lastNameWife')" label="Último Nome"></app-error-form>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife">
+                                    <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
+                                    <app-error-form [control]="form.get('cpfWife')" label="CPF"></app-error-form>
                                 </div>
                                 <div class="col-6">
                                     <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
+                                    <app-error-form [control]="form.get('birthDateWife')" label="Data de Nascimento"></app-error-form>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
+                                <app-error-form [control]="form.get('emailWife')" label="Email"></app-error-form>
                             </div>
                     </div>
 
@@ -65,9 +69,10 @@
 
                     <div class="form-group">
                         <p>DADOS DA ENTREGA</p>
-                        <address-form></address-form>
+                        <address-form ></address-form>
                     </div>
-                    <button type="submit" class="btn btn-cadastro btn-lg">ENVIAR</button>
+                    <button type="submit" class="btn btn-cadastro btn-lg"
+                    [disabled]="!form.valid">ENVIAR</button>
                 </form>
             </div>
             <div class="col-6">
@@ -75,10 +80,10 @@
                     <p>SEUS INGRESSO</p>
                     <div class="row">
                         <div class="col-sm-5">
-                            <input type="text" class="form-control cadastro" placeholder="Nome" formControlName='name' required>
+                            <img src="" alt="Minha imagem de teste">
                         </div>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control cadastro" placeholder="Último Nome" formControlName='lastName'>
+                            <span>Ingresso</span>
                         </div>
                     </div>
                 </form>
