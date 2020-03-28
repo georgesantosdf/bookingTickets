@@ -67,7 +67,11 @@
 
                     <br/>
 
-                    <div class="form-group">
+                    <div class="mt-5" formGroupName="addressForm">
+                        <app-campo-erro-form 
+                            [mostrarErro]="verificaValidAddressTouched()" 
+                            msgErro="CEP é obrigatório.">
+                        </app-campo-erro-form>
                         <p>DADOS DA ENTREGA</p>
                         <address-form ></address-form>
                     </div>
@@ -84,6 +88,9 @@
                         </div>
                         <div class="col-sm-5">
                             <span>Ingresso</span>
+                            <ul *ngFor="let item of movies">
+                                <li>{{item.title}}</li>
+                            </ul>
                         </div>
                     </div>
                 </form>

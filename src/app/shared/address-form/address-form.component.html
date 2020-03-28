@@ -1,21 +1,12 @@
-<form class="mt-5" formGroupName="address">
-    <div class="input-group" >
-        <input type="text" class="form-control" id="cep"
-        formControlName="cep" placeholder="CEP"
-        (blur)="consultaCEP()">
-        <!--<app-campo-erro-form 
-            [mostrarErro]="verificaValidTouched()" 
-            msgErro="CEP é obrigatório.">
-        </app-campo-erro-form>-->
+<input type="text" class="form-control" id="cep"
+    formControlName="cep" placeholder="CEP"    (blur)="consultaCEP($event)">
+<input type="text" id="address" class="validate" placeholder="Endereço" formControlName='address'>
+<div class="row">
+    <div class="col-6">
+        <input type="text" id="country" class="validate" placeholder="País" formControlName='country'>
     </div>
-    <input type="text" id="address" class="validate" placeholder="Endereço" formControlName='address'>
-    <div class="row">
-        <div class="col-6">
-            <input type="text" id="country" class="validate" placeholder="País" formControlName='country'>
-        </div>
-        <div class="col-6">
-            <input type="text" id="state"  class="validate" placeholder="Estado" formControlName='state'>
-        </div>
+    <div class="col-6">
+        <input type="text" id="state"  class="validate" placeholder="Estado" formControlName='state'>
     </div>
-    <input type="text" id="telephone"  class="validate" placeholder="Telefone" formControlName='telephone'>
-</form>
+</div>
+<input type="text" id="telephone"  class="validate" placeholder="Telefone" formControlName='telephone'>

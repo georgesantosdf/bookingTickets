@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import {Reservation} from '../entities/reservation';
 import { environment } from '../../environments/environment';
 import { Movie } from '../entities/movie';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +18,13 @@ export class CreateReservationService {
    return this.http.post(this.API, reservation);
  }
 
-  getMovieDB(language:string, page:string){
+  getMovieDB(language:string, page:string): Observable<Movie[]>{
     let options: HttpParams = new HttpParams();
     options = options.set("api_key", "123499d790e577da59a10ae44cf534d5");
     options = options.set("language", language);
     options = options.set("page", page);
 
-    return this.http.get<Movie[]>(this.API_MOVIE_DB, { params: options, observe: 'response' });
+    return this.http.get<Movie[]>(this.API_MOVIE_DB, { params: options});
   
   }
 }

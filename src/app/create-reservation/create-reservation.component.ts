@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CreateReservationService } from './create-reservation.service';
 import { Reservation } from '../entities/reservation';
@@ -12,9 +12,10 @@ import { Address } from '../entities/address';
   styleUrls: ['./create-reservation.component.css']
 })
 export class CreateReservationComponent  implements OnInit {
-  @Input() address: Address;
+  @Output() address: Address;
 
   form: FormGroup;
+  addressForm:FormGroup;
   isChecked = false;
   checkBox  = false;
  
@@ -44,17 +45,36 @@ export class CreateReservationComponent  implements OnInit {
       ])],
       email: [null, Validators.compose([Validators.email])],
       cpf: [null, Validators.compose([Validators.required, FormValidations.ValidaCpf])],
-      birthDate: [null]
+      birthDate: [null],
+      addressForm: this.formBuilder.group({
+        cep: ['', [
+          Validators.required,
+          FormValidations.cepValidator
+        ]],
+        address: ['', [
+          Validators.required
+        ]],
+        country: [],
+        state: [],
+        telephone: []
+      })
     });
+  }
+  
+  verificaValidAddressTouched() {
+    return (
+      !this.addressForm.get(this.address.cep).valid &&
+      (this.addressForm.get(this.address.cep).touched || this.addressForm.get(this.address.cep).dirty)
+    );
   }
 
   obterMovieDB(){
     const language = "pt_BR";
     const page = "1";
     this.createReservationService.getMovieDB(language, page)
-      .subscribe(response => ( this.movies = response.body));
-
-   // this.movie = this.movies[0];
+      .subscribe(data => {
+        this.movies = data});
+    console.log(this.movies);
   }
 
   onChecked(e: { target: { checked: boolean; }; }){
@@ -81,6 +101,17 @@ export class CreateReservationComponent  implements OnInit {
           }),
 
         });
+    }else{
+      this.form = this.formBuilder.group({
+        formWife: this.formBuilder.group({
+          nameWife: [null],
+          lastNameWife: [null],
+          emailWife: [null],
+          cpfWife: [null],
+          birthDateWife: [null]
+        }),
+
+      });
     }
   }
 

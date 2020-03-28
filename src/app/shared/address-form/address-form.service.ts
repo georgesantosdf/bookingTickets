@@ -14,15 +14,13 @@ export class AddressFormService {
    constructor(private http: HttpClient) { }
 
 
-  consultaCEP(cep, resetaFormCallback, formulario) {
+  consultaCEP(cep) {
     cep = cep.replace(/\D/g, '');
 
     if (cep != '') {
       var validacep = /^[0-9]{8}$/;
 
       if (validacep.test(cep)) {
-        resetaFormCallback(formulario);
-
         return this.http
           .get(`${this.API_CEP}/${cep}`);
       }
