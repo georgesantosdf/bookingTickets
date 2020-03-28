@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CreateReservationService } from './create-reservation.service';
 
 @Component({
@@ -7,12 +7,19 @@ import { CreateReservationService } from './create-reservation.service';
   styleUrls: ['./create-reservation.component.css']
 })
 export class CreateReservationComponent implements OnInit {
+  isChecked = false;
+  checkBox  = false;
 
   constructor(
-    private createReservationService: CreateReservationService,
+    //private createReservationService: CreateReservationService
+    
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onChecked(e: { target: { checked: boolean; }; }){
+    this.isChecked= e.target.checked;
   }
 
 }

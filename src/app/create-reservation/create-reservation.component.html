@@ -1,1 +1,83 @@
-<p>create-reservation works!</p>
+<div class="container">
+    <div class="row box-cadastro">
+      <div class="col-12">
+        <h3 class="text-left">FORMULÀRIO</h3>
+        <div class="row">
+            <div class="col-6">
+                <form class="mt-5" >
+                    <p>DADOS PESSOAIS</p>
+                    <div class="row">
+                        <div class="col-6">
+                           <span>Nome</span>
+                            <input type="text" class="form-control cadastro" placeholder="Nome" formControlName='name' required>
+                        </div>
+                        <div class="col-6">
+                            <span>Último Nome</span>
+                            <input type="text" class="form-control cadastro" placeholder="Último Nome" formControlName='lastName'>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" class="form-control cadastro" placeholder="CPF" formControlName='cpf' required maxlength=11>
+                        </div>
+                        <div class="col-6">
+                            <input type="date" class="form-control cadastro" placeholder="Data de Nascimento" formControlName='birthDate' required maxlength=11>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control cadastro" placeholder="E-mail" formControlName='email'>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <input type="checkbox" ([checkBox])="checkBox" data-md-icheck (change)="onChecked($event)"> Adicionar acompanhante
+                        </span>
+                    </div> 
+                    <div *ngIf="isChecked"> 
+                        <p>ACOMPANHANTE 1</p>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" class="form-control cadastro" placeholder="Nome" formControlName='nameWife' required>
+                            </div>
+                            <div class="col-6">
+                                <input type="text" class="form-control cadastro" placeholder="Último Nome" formControlName='lastNameWife'>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" class="form-control cadastro" placeholder="CPF" formControlName='cpfWife' required maxlength=11>
+                            </div>
+                            <div class="col-6">
+                                <input type="date" class="form-control cadastro" placeholder="Data de Nascimento" formControlName='birthDateWife' required maxlength=11>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control cadastro" placeholder="E-mail" formControlName='emailWife'>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="form-group">
+                        <p>DADOS DA ENTREGA</p>
+                        <address-form></address-form>
+                    </div>
+                    <button type="submit" class="btn btn-cadastro btn-lg">ENVIAR</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <form class="mt-5" >
+                    <p>SEUS INGRESSO</p>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control cadastro" placeholder="Nome" formControlName='name' required>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control cadastro" placeholder="Último Nome" formControlName='lastName'>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

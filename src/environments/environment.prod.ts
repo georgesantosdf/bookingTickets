@@ -1,3 +1,6 @@
 export const environment = {
-  production: true
+  production: true,
+  API: '/',
+  API_CEP: '/',
+  API_MOVIE_DB: '/'
 };

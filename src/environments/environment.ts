@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  API: 'http://localhost/reserva',
+  API: 'http://localhost/reserva/',
+  API_CEP: 'http://correiosapi.apphb.com/',
+  API_MOVIE_DB: 'https://api.themoviedb.org/3/movie/upcoming/'
 };
 
 /*

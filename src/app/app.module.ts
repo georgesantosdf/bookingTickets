@@ -5,18 +5,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateReservationComponent } from './create-reservation/create-reservation.component';
+import { AddressFormComponent } from './shared/address-form/address-form.component';
+
+import { CreateReservationService } from './create-reservation/create-reservation.service';
+import { AddressFormService } from './shared/address-form/address-form.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateReservationComponent
+    CreateReservationComponent,
+    AddressFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [CreateReservationService,
+              AddressFormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
