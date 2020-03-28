@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,17 +11,27 @@ import { AddressFormComponent } from './shared/address-form/address-form.compone
 
 import { CreateReservationService } from './create-reservation/create-reservation.service';
 import { AddressFormService } from './shared/address-form/address-form.service';
+import { ErrorFormComponent } from './shared/erro-form/error-form.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateReservationComponent,
-    AddressFormComponent
+    AddressFormComponent,
+    ErrorFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule
+  ],
+  exports: [
+    ErrorFormComponent
   ],
   providers: [CreateReservationService,
               AddressFormService],

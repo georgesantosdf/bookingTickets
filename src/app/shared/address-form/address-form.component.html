@@ -1,12 +1,16 @@
-    <input type="text" id="address.cep" class="form-control cadastro" placeholder="CEP" formControlName='cep'>
-    <input type="text" class="form-control cadastro" placeholder="Endereço" formControlName='address'>
+<form class="mt-5" [formGroup]="form">
+    <div class="input-group">
+        <input type="text" id="cep" [(ngModel)]="address.cep" class="validate" placeholder="CEP" formControlName='cep'>
+        <app-error-msg [control]="form.get('cep')" label="CEP"></app-error-msg>
+    </div>
+    <input type="text" id="address" [(ngModel)]="address.address" class="validate" placeholder="Endereço" formControlName='address'>
     <div class="row">
         <div class="col-6">
-            <input type="text" class="form-control cadastro" placeholder="País" formControlName='pais'>
+            <input type="text" id="country" [(ngModel)]="address.country" class="validate" placeholder="País" formControlName='country'>
         </div>
         <div class="col-6">
-            <input type="text" class="form-control cadastro" placeholder="Estado" formControlName=''>
+            <input type="text" id="state" [(ngModel)]="address.state" class="validate" placeholder="Estado" formControlName='state'>
         </div>
     </div>
-    <input type="text" class="form-control cadastro" placeholder="Telefone" formControlName='tel'>
-   
+    <input type="text" id="telephone"  [(ngModel)]="address.telephone" class="validate" placeholder="Telefone" formControlName='telephone'>
+</form>

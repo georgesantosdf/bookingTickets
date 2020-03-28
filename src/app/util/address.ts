@@ -1,6 +1,7 @@
-export interface Address {
-  cep: String,
-  address: String,
-  pais: String,
-  estado: String
+export class Address {
+  cep: String;
+  address: String;
+  country: String;
+  state: String;
+  telephone: String;
   }

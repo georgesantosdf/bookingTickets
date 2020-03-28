@@ -13,8 +13,8 @@ export class AddressFormService {
 
    constructor(private http: HttpClient) { }
 
-   private getCepByID(id): Observable<HttpResponse<Address>> {
-    return this.http.get<Address>(`${this.API}/${id}`, { observe: 'response' });
+  getUser(id){
+    return this.http.get(`${this.API}/${id}`);
   }
 
 }
