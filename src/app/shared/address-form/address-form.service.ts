@@ -9,7 +9,7 @@ import { Address } from 'src/app/entities/address';
 })
 export class AddressFormService {
 
-  private readonly API_CEP = `${environment.API_CEP}cep`;
+  private readonly API_CEP = `${environment.API_CEP_SECUNDARIO}`;
 
    constructor(private http: HttpClient) { }
 
@@ -22,7 +22,7 @@ export class AddressFormService {
 
       if (validacep.test(cep)) {
         return this.http
-          .get(`${this.API_CEP}/${cep}`);
+          .get(`${this.API_CEP}/${cep}/json`);
       }
     }
   }
