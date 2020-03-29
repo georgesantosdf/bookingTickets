@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { CreateReservationService } from './pages/create-reservation/create-rese
 import { AddressFormService } from './shared/address-form/address-form.service';
 import { ErrorFormComponent } from './shared/erro-form/error-form.component';
 import { CampoErroFormComponent } from './shared/campo-erro-form/campo-erro-form.component';
+import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterceptor';
 
 
 
@@ -35,8 +36,13 @@ import { CampoErroFormComponent } from './shared/campo-erro-form/campo-erro-form
   exports: [
     ErrorFormComponent
   ],
-  providers: [CreateReservationService ,
-              AddressFormService],
+  providers: [AddressFormService,
+              CreateReservationService,
+              {
+                provide: HTTP_INTERCEPTORS,
+                useClass: HttpsRequestInterceptor,
+                multi: true,
+              } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

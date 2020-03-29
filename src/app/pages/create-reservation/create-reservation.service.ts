@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
-import {Reservation} from '../../entities/reservation';
+import {Reservation} from '../../core/entities/reservation';
 import { environment } from '../../../environments/environment';
-import { Result } from '../../entities/result';
+import { Result } from '../../core/entities/result';
 import { map } from 'rxjs/operators';
-import { Movie } from '../../entities/movie';
+import { Movie } from '../../core/entities/movie';
 import { ApiMoviedb } from 'src/app/moviedb-config-sample';
 
 @Injectable({

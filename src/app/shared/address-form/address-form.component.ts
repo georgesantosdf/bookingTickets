@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AddressFormService } from './address-form.service';
-import { Address } from 'src/app/entities/address';
+import { Address } from 'src/app/core/entities/address';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FormValidations } from '../erro-form/form-validations';
 

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CreateReservationService } from './create-reservation.service';
-import { Reservation } from '../../entities/reservation';
+import { Reservation } from '../../core/entities/reservation';
 import { FormValidations } from '../../shared/erro-form/form-validations';
-import { Address } from '../../entities/address';
-import { Movie } from '../../entities/movie';
+import { Address } from '../../core/entities/address';
+import { Movie } from '../../core/entities/movie';
 
 @Component({
   selector: 'app-create-reservation',
