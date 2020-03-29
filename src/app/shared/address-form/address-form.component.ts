@@ -16,9 +16,6 @@ export class AddressFormComponent implements OnInit {
 
   enderecoForm:FormGroup;
 
-  optionsSelect: Array<any>;
-  disabled: boolean = true;
-  
   constructor(
     private formBuilder: FormBuilder,
     private addressFormService : AddressFormService,
@@ -26,11 +23,6 @@ export class AddressFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.optionsSelect = [
-      { value: '1', label: 'Brasil' } ,
-      { value: '2', label: 'Estados unidos' } ,
-      { value: '3', label: 'Mexico' } ,
-    ]; 
     this.enderecoForm = this.formBuilder.group({
       cep: ['', [
         Validators.required,
@@ -39,15 +31,15 @@ export class AddressFormComponent implements OnInit {
       address: ['', [
         Validators.required
       ]],
-      country: ['Brasil', 'Estados Unidos'],
-      state: ['DF'],
+      country: [''],
+      state: [''],
       telephone: ['']
     });
   }
 
   consultaCEP(){
     let cep = this.enderecoForm.get('cep').value;
-    if(cep){
+    if(cep !== null){
       this.addressFormService.consultaCEP(cep)
       .subscribe(dados => this.populaDadosForm(dados), (error: any) => console.log('erro ao consultar CEP'));
     }

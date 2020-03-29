@@ -2,6 +2,9 @@
     margin: 30px;
     padding: 30px;
 }
+.container {
+    margin: 30px;
+  }
 
 .validate {
     padding: 10px;
@@ -12,6 +15,10 @@
     height: 50px;
 }
 
+.content-form {
+    border-right: 1px solid #f1f1f1
+  }
+
 .btn-cadastro {
     width: 30%;
     display: block;
@@ -20,3 +27,79 @@
     background-color: #0003af;
     font-weight: bold;
 }
+.container-formWife {
+    padding-top: 20px;
+    }
+
+.header-form {
+    padding-bottom: 40px;
+    border-bottom: #cfcece 1px solid;
+}
+  
+.header-form h2 {
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.header-dados-pessoais {
+   background-color: #777676;
+   padding: 1px;
+}
+
+.header-ingresso {
+    background-color: #777676;
+    padding: 1px;
+  }
+  
+  .header-ingresso h3{
+    padding-left: 20px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
+  
+.header-dados-pessoais h3 {
+   padding-left: 20px;
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+footer {
+    margin: 30px;
+    border-bottom: #cfcece 1px solid;
+  }
+  .title-section-footer {
+    color: #0654AE;
+  }
+  
+  footer span {
+    padding: 5px;
+    color: #777676
+  }
+  
+  .logo-footer {
+    width: 200px ;
+  }
+  
+  .addres-footer {
+    margin-right: 40px;
+    text-align: left;
+  }
+  
+  .redes-socias {
+    color: #777676;
+    font-weight: 500;
+  }
+  
+  .logo-redes-footer{
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #0654AE;
+    margin: 5px;
+    border-radius: 100%
+  }
+  
+  .content-redes-sociais {
+    margin-bottom: 30px;
+  }
+  .copyright {
+    position: absolute;
+    right: 25px;
+  }

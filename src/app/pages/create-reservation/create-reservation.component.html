@@ -1,97 +1,156 @@
 <div class="container">
-    <div class="row box-cadastro">
-      <div class="col-12">
-        <h3 class="text-left">FORMULÀRIO</h3>
-        <div class="row">
-            <div class="col-6" [formGroup]="form">
-                <form class="mt-5" (ngSubmit)="enviarDados()">
-                    <p>DADOS PESSOAIS</p>
-                    <div class="row">
-                        <div class="col-6">
-                           <span>Nome</span>
-                            <input type="text" id="name"  class="validate" placeholder="Nome" formControlName='name'>
-                            <app-error-form [control]="form.get('name')" label="Nome"></app-error-form>
+    <div class="header-form">
+        <h2>FORMULÀRIO</h2>
+        <div fxLayout="row" fxLayout.xs="column">
+            <div class="content-form" fxFlex="65">
+                <div class="header-dados-pessoais">
+                  <h3>DADOS PESSOAIS</h3>
+                </div>
+                <form  [formGroup]="form" class="mt-5" (ngSubmit)="enviarDados()">
+                    <div fxLayout="column">
+                        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+                            <div fxFlex="50">
+                                <input type="text" id="name"  class="validate" placeholder="Nome" formControlName='name'>
+                                <app-error-form [control]="form.get('name')" label="Nome"></app-error-form>
+                            </div>
+                            <div fxFlex="50">
+                                <input type="text" id="lastName"  class="validate" placeholder="Último Nome" formControlName='lastName'>
+                                <app-error-form [control]="form.get('lastName')" label="Último Nome"></app-error-form>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <span>Último Nome</span>
-                            <input type="text" id="lastName"  class="validate" placeholder="Último Nome" formControlName='lastName'>
-                            <app-error-form [control]="form.get('lastName')" label="Último Nome"></app-error-form>
+                        <div fxLayout="row" fxLayout.xs="column">
+                            <div fxFlex="50">
+                                <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf' maxlength="11">
+                                <app-error-form [control]="form.get('cpf')" label="CPF"></app-error-form>
+                            </div>
+                            <div fxFlex="50">
+                                <input type="date" id="birthDate" class="validate" placeholder="Data de Nascimento" formControlName='birthDate' >
+                                <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf' maxlength="11">
-                            <app-error-form [control]="form.get('cpf')" label="CPF"></app-error-form>
+                        <div class="input-group" fxFlex="100" [ngClass]="aplicaCssErro('email')">
+                            <input type="email" id="email"  class="validate" placeholder="nome@email.com" formControlName="email">
+                            <app-error-form [control]="form.get('email')" label="Email"></app-error-form>
                         </div>
-                        <div class="col-6">
-                            <input type="date" id="birthDate" class="validate" placeholder="Data de Nascimento" formControlName='birthDate' >
-                            <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="checkbox" ([checkBox])="checkBox" data-md-icheck (change)="onChecked($event)"> Adicionar acompanhante
+                            </span>
+                        </div> 
+                        <div *ngIf="isChecked" formGroupName="formWife" style="padding: 10px;"> 
+                            <div class="container-formWife">
+                                <h3>ACOMPANHANTE 1</h3>
+                                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+                                    <div fxFlex="50">
+                                        <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
+                                        <app-error-form [control]="form.get('formWife.nameWife')" label="CPF"></app-error-form>
+                                    </div>
+                                    <div fxFlex="50">
+                                        <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
+                                        <app-error-form [control]="form.get('formWife.lastNameWife')" label="Último Nome"></app-error-form>
+                                    </div>
+                                </div>
+                                <div fxLayout="row" fxLayout.xs="column">
+                                    <div fxFlex="50">
+                                        <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
+                                        <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
+                                    </div>
+                                    <div fxFlex="50">
+                                        <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
+                                        <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
+                                    </div>
+                                </div>
+                                <div class="form-group" fxFlex="100">
+                                    <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
+                                    <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-group" [ngClass]="aplicaCssErro('email')">
-                        <input type="email" id="email"  class="validate" placeholder="nome@email.com" formControlName="email">
-                        <app-error-form [control]="form.get('email')" label="Email"></app-error-form>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <input type="checkbox" ([checkBox])="checkBox" data-md-icheck (change)="onChecked($event)"> Adicionar acompanhante
-                        </span>
+
+                        <div class="mt-5" formGroupName="addressForm" style="padding: 10px;">
+                            <h3>DADOS DA ENTREGA</h3>
+                            <address-form [form]="form"></address-form>
+                        </div>
                     </div> 
-                    <div *ngIf="isChecked" formGroupName="formWife"> 
-                        <p>ACOMPANHANTE 1</p>
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
-                                    <app-error-form [control]="form.get('formWife.nameWife')" label="CPF"></app-error-form>
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
-                                    <app-error-form [control]="form.get('formWife.lastNameWife')" label="Último Nome"></app-error-form>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
-                                    <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
-                                </div>
-                                <div class="col-6">
-                                    <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
-                                    <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
-                                <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
-                            </div>
-                    </div>
-
-                    <br/>
-
-                    <div class="mt-5" formGroupName="addressForm">
-                        <p>DADOS DA ENTREGA</p>
-                        <address-form [form]="form"></address-form>
-                    </div>
-                    <button type="submit" class="btn btn-cadastro btn-lg"
-                    [disabled]="!form.valid">ENVIAR</button>
                 </form>
+                        <button type="submit" class="btn btn-cadastro btn-lg"
+                        [disabled]="!form.valid">ENVIAR</button>
+                  
             </div>
-            <div class="col-6">
-                <form class="mt-5" >
-                    <p>SEUS INGRESSO</p>
-                    <div class="row">
-                        <div class="col-sm-5">
-                            <img src="" alt="Minha imagem de teste">
-                        </div>
-                        <div class="col-sm-5">
-                            <span>Ingresso</span>
-                            <ul *ngFor="let item of movie.results">
-                                <li>{{item.title}}</li>
-                            </ul>
-                        </div>
+            <div class="content-checkout-payment" fxFlex="35">
+                <div class="header-ingresso">
+                  <h3>SEU INGRESSO</h3>
+                </div>
+                <div class="container-ingresso" fxLayout="row" fxLayoutAlign="space-evenly start">
+                  <img class="img-poster" src="" alt="poster do filme selecionado">
+                  <div fxLayout="column">
+                    <h3 class="title-ingresso">Ingresso</h3>
+                    <p>Filme: george filme</p>
+                    <p class="valor-filme"><b>R$ 1</b></p>
+                  </div>
+                </div>
+                <div class="content-ingresso" fxLayout="column">
+                  <div class="content-value">
+                    <div fxLayout="row" fxLayoutAlign="space-between center" >
+                      <p class="sub-title-value">Sub total</p>
+                      <div fxLayout="column">
+                        <p>R$ 1</p>
+                      </div>
                     </div>
-                </form>
-            </div>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" >
+                      <p class="sub-title-value">Frete</p>
+                      <p>R$ 1</p>
+                    </div>
+                  </div>
+                  <div fxLayout="row" fxLayoutAlign="space-between center" class="content-total">
+                    <p class="sub-title-total">Total</p>
+                  </div>
+                </div>
+              </div>
         </div>
-      </div>
     </div>
-  </div>
+    
+    <footer>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+          <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
+            <img class="logo-footer" src="../../../assets/otech.png" alt="Logo da otech">
+            <span class="addres-footer">Street address: 445 Mount Eden Road, Mount Eden, Auckland - Postcode: 55022</span>
+            <h3 class="redes-socias">Nossas Redes</h3>
+            <div fxLayout="row" class="content-redes-sociais">
+              <div class="logo-redes-footer" fxLayoutAlign="center center">
+                <i class="fab fa-instagram"></i>
+              </div>
+              <div class="logo-redes-footer" fxLayoutAlign="center center">
+                <i class="fab fa-linkedin-in"></i>        
+              </div>
+              <div class="logo-redes-footer" fxLayoutAlign="center center">
+                <i class="fab fa-twitter"></i>    
+              </div>             
+            </div>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
+            <h3 class="title-section-footer">Sobre Nós</h3>
+            <span>Perfil</span>
+            <span>Sobre</span>
+            <span>Contato</span>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
+            <h3 class="title-section-footer">Redes Sociais</h3>
+            <span>Twitter</span>
+            <span>Instagram</span>
+            <span>Linkedin</span>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
+            <h3 class="title-section-footer">Contato</h3>
+            <span>FAC</span>
+            <span>Sitemap</span>
+            <span>Dúvidas</span>
+          </div>
+      
+        </div>
+      </footer>
+      <div fxLayout="row">
+        <span>Contact Us</span>
+        <span class="copyright">Copyight 2019.<i class="far fa-copyright"></i> Tempalte</span>
+      </div>
+</div>

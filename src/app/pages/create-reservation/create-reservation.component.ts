@@ -77,7 +77,6 @@ export class CreateReservationComponent  implements OnInit {
 
   popularMovie(data:any){
       this.movie = data;
-      console.log(this.movie);
   }
 
   onChecked(e: { target: { checked: boolean; }; }){

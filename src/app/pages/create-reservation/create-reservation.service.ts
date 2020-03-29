@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import {Reservation} from '../../core/entities/reservation';
 import { environment } from '../../../environments/environment';
-import { Result } from '../../core/entities/result';
-import { map } from 'rxjs/operators';
 import { Movie } from '../../core/entities/movie';
 import { ApiMoviedb } from 'src/app/moviedb-config-sample';
 
@@ -25,6 +23,6 @@ export class CreateReservationService extends ApiMoviedb {
     options = options.set("language", language);
     options = options.set("page", page);
 
-    return this.http.get(this.baseUrlMovie, { params: options}).pipe(map((res: any) => res.results));
+    return this.http.get<Movie[]>(`${this.baseUrlMovie}movie/upcoming`, { params: options});
   }
 }
