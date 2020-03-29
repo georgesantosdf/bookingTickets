@@ -7,9 +7,7 @@ export const environment = {
   API: 'http://localhost/reserva/',
   API_CEP: 'http://correiosapi.apphb.com/',
   API_CEP_SECUNDARIO:'http://viacep.com.br/ws/',
-  API_MOVIE_DB: 'https://api.themoviedb.org/3/movie/upcoming/',
-  AUTH_MOVIE_DB: '123499d790e577da59a10ae44cf534d5',
-  AUTH_RESERVA: '#ASDFGW#ERWQERTRYT#%$%$@#$%==',
+  AUTH_RESERVA: '#ASDFGW#ERWQERTRYT#%$%$@#$%=='
 };
 
 /*

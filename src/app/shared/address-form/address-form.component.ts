@@ -15,6 +15,9 @@ export class AddressFormComponent implements OnInit {
   @Input() form: FormGroup;
 
   enderecoForm:FormGroup;
+
+  optionsSelect: Array<any>;
+  disabled: boolean = true;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -23,6 +26,11 @@ export class AddressFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.optionsSelect = [
+      { value: '1', label: 'Brasil' } ,
+      { value: '2', label: 'Estados unidos' } ,
+      { value: '3', label: 'Mexico' } ,
+    ]; 
     this.enderecoForm = this.formBuilder.group({
       cep: ['', [
         Validators.required,
@@ -31,8 +39,8 @@ export class AddressFormComponent implements OnInit {
       address: ['', [
         Validators.required
       ]],
-      country: [''],
-      state: [''],
+      country: ['Brasil', 'Estados Unidos'],
+      state: ['DF'],
       telephone: ['']
     });
   }

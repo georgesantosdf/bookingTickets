@@ -6,10 +6,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateReservationComponent } from './create-reservation/create-reservation.component';
+import { CreateReservationComponent } from './pages/create-reservation/create-reservation.component';
 import { AddressFormComponent } from './shared/address-form/address-form.component';
 
-import { CreateReservationService } from './create-reservation/create-reservation.service';
+import { CreateReservationService } from './pages/create-reservation/create-reservation.service';
 import { AddressFormService } from './shared/address-form/address-form.service';
 import { ErrorFormComponent } from './shared/erro-form/error-form.component';
 import { CampoErroFormComponent } from './shared/campo-erro-form/campo-erro-form.component';

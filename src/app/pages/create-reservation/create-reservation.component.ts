@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CreateReservationService } from './create-reservation.service';
-import { Reservation } from '../entities/reservation';
-import { FormValidations } from '../shared/erro-form/form-validations';
-import { Address } from '../entities/address';
-import { Movie } from '../entities/movie';
+import { Reservation } from '../../entities/reservation';
+import { FormValidations } from '../../shared/erro-form/form-validations';
+import { Address } from '../../entities/address';
+import { Movie } from '../../entities/movie';
 
 @Component({
   selector: 'app-create-reservation',
@@ -71,7 +71,7 @@ export class CreateReservationComponent  implements OnInit {
   obterMovieDB(){
     const language = "pt_BR";
     const page = "1";
-    this.createReservationService.getMovieDB(language, page).then
+    this.createReservationService.getMovieDB(language, page).subscribe
       (data => { this.popularMovie(data) }, (error: any) => console.log('erro ao consultar Movie API') );
   }
 
@@ -165,7 +165,6 @@ export class CreateReservationComponent  implements OnInit {
 
   verificaValidacoesForm(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach(campo => {
-      console.log(campo);
       const controle = formGroup.get(campo);
       controle.markAsDirty();
       if (controle instanceof FormGroup) {
