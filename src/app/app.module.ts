@@ -9,13 +9,14 @@ import { NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateReservationComponent } from './pages/create-reservation/create-reservation.component';
-import { AddressFormComponent } from './shared/address-form/address-form.component';
+import { AddressFormComponent } from './shared/components/forms/address-form/address-form.component';
 
 import { CreateReservationService } from './pages/create-reservation/create-reservation.service';
-import { AddressFormService } from './shared/address-form/address-form.service';
-import { ErrorFormComponent } from './shared/erro-form/error-form.component';
-import { CampoErroFormComponent } from './shared/campo-erro-form/campo-erro-form.component';
+import { AddressFormService } from './shared/components/forms/address-form/address-form.service';
+import { CampoErroFormComponent } from './shared/validators/campo-erro-form/campo-erro-form.component';
 import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterceptor';
+import { ErrorFormComponent } from './shared/validators/erro-form/error-form.component';
+import { LoadingComponent } from './shared/components/loading/loading.component';
 
 
 
@@ -25,7 +26,8 @@ import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterce
     CreateReservationComponent,
     AddressFormComponent,
     ErrorFormComponent,
-    CampoErroFormComponent
+    CampoErroFormComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterce
     NgxMaskModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
-    FlexLayoutModule    
+    FlexLayoutModule
   ],
   exports: [
     ErrorFormComponent

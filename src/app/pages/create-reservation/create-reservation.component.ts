@@ -1,10 +1,12 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
+
 import { CreateReservationService } from './create-reservation.service';
 import { Reservation } from '../../core/entities/reservation';
-import { FormValidations } from '../../shared/erro-form/form-validations';
 import { Address } from '../../core/entities/address';
 import { Movie } from '../../core/entities/movie';
+import { FormValidations } from '../../shared/validators/form-validations';
 
 @Component({
   selector: 'app-create-reservation',
@@ -23,6 +25,8 @@ export class CreateReservationComponent  implements OnInit {
   valueMovie:number;
   valueFrete:number;
   titleMovie:string;
+
+  loading:boolean;
 
   reservation: Reservation;
 
@@ -79,10 +83,17 @@ export class CreateReservationComponent  implements OnInit {
   }
 
   obterMovieDB(){
+    this.loading = true;
     const language = "pt_BR";
     const page = "1";
-    this.createReservationService.getMovieDB(language, page).subscribe
-      (data => { this.popularMovie(data) }, (error: any) => console.log('erro ao consultar Movie API') );
+    this.createReservationService.getMovieDB(language, page).pipe(
+        finalize(() => {
+          setTimeout(() => {
+            this.loading = false;
+          }, 250);
+        })
+      ).subscribe
+      ((data:any) => { this.popularMovie(data) }, (error: any) => console.log('erro ao consultar Movie API') );
   }
 
   popularMovie(data:any){

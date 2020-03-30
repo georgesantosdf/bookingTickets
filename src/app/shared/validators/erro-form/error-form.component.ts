@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FormValidations } from './form-validations';
+import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-error-form',

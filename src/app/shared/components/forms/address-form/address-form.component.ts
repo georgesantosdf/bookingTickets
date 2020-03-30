@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+
 import { AddressFormService } from './address-form.service';
 import { Address } from 'src/app/core/entities/address';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { FormValidations } from '../erro-form/form-validations';
+import { FormValidations } from 'src/app/shared/validators/form-validations';
 
 @Component({
   selector: 'address-form',

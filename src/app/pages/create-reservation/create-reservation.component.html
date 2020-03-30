@@ -132,33 +132,33 @@
             <h3 class="redes-socias">Nossas Redes</h3>
             <div fxLayout="row" class="content-redes-sociais">
               <div class="logo-redes-footer" fxLayoutAlign="center center">
-                <i class="fab fa-instagram"></i>
+                <a [routerLink]="['/']" class="fab fa-instagram"></a>
               </div>
               <div class="logo-redes-footer" fxLayoutAlign="center center">
-                <i class="fab fa-linkedin-in"></i>        
+                <a [routerLink]="['/']" class="fab fa-linkedin-in"></a>        
               </div>
               <div class="logo-redes-footer" fxLayoutAlign="center center">
-                <i class="fab fa-twitter"></i>    
+                <a [routerLink]="['/']" class="fab fa-twitter"></a>    
               </div>             
             </div>
           </div>
           <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
             <h3 class="title-section-footer">Sobre Nós</h3>
-            <span>Perfil</span>
-            <span>Sobre</span>
-            <span>Contato</span>
+            <a [routerLink]="['/']">Perfil</a>
+            <a [routerLink]="['/']">Sobre</a>
+            <a [routerLink]="['/']">Contato</a>
           </div>
           <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
             <h3 class="title-section-footer">Redes Sociais</h3>
-            <span>Twitter</span>
-            <span>Instagram</span>
-            <span>Linkedin</span>
+            <a [routerLink]="['/']">Twitter</a>
+            <a [routerLink]="['/']">Instagram</a>
+            <a [routerLink]="['/']">Linkedin</a>
           </div>
           <div fxLayout="column" fxLayoutAlign="space-between start" fxFlex="25">
             <h3 class="title-section-footer">Contato</h3>
-            <span>FAC</span>
-            <span>Sitemap</span>
-            <span>Dúvidas</span>
+            <a [routerLink]="['/']">FAC</a>
+            <a [routerLink]="['/']">Sitemap</a>
+            <a [routerLink]="['/']">Dúvidas</a>
           </div>
       
         </div>
@@ -168,3 +168,4 @@
         <span class="copyright">Copyight 2019.<i class="far fa-copyright"></i> Tempalte</span>
       </div>
 </div>
+<app-loading *ngIf="loading"></app-loading>
