@@ -2,6 +2,10 @@ import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { finalize } from 'rxjs/operators';
 
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+
 import { CreateReservationService } from './create-reservation.service';
 import { Reservation } from '../../core/entities/reservation';
 import { Address } from '../../core/entities/address';
@@ -19,6 +23,10 @@ export class CreateReservationComponent  implements OnInit {
   form: FormGroup;
   isChecked = false;
   checkBox  = false;
+
+  faTwitter = faTwitter;
+  faLinkedinIn = faLinkedinIn;
+  faInstagram = faInstagram;
  
   movie: Movie;
   imageMovie: string;

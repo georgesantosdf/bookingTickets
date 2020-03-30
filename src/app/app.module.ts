@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NgxMaskModule } from 'ngx-mask';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +19,6 @@ import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterce
 import { ErrorFormComponent } from './shared/validators/erro-form/error-form.component';
 import { LoadingComponent } from './shared/components/loading/loading.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +31,7 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
   imports: [
     BrowserModule,
     FormsModule,
+    FontAwesomeModule,
     ReactiveFormsModule,
     NgxMaskModule.forRoot(),
     HttpClientModule,
@@ -50,4 +50,5 @@ import { LoadingComponent } from './shared/components/loading/loading.component'
               } ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}
