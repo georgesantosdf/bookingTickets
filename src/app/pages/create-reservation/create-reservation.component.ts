@@ -101,9 +101,6 @@ export class CreateReservationComponent  implements OnInit {
       this.movie = data;
       this.titleMovie = this.movie.results[0].title;
       this.imageMovie = this.movie.results[0].poster_path;
-   /** this.createReservationService.getImagesByMovie(this.movie.results[0].id, language).subscribe
-      ((res: any) => {
-        this.imageMovie = res.posters[0].file_path},  (error: any) => console.log('erro ao consultar imagem'));*/ 
   }
 
   onChecked(e: { target: { checked: boolean; }; }){

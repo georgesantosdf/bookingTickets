@@ -25,12 +25,5 @@ export class CreateReservationService extends ApiMovieDBConfig {
 
     return this.http.get<Movie[]>(`${this.baseUrlMovie}movie/upcoming`, { params: options});
   }
-
-  getImagesByMovie(idMovie:number, language:string) {
-    let options: HttpParams = new HttpParams();
-    options = options.set("api_key", this.keyUrlMovie);
-    //options = options.set("language", language); Consulta com language está com problema
-
-    return this.http.get(`${this.baseUrlMovie}movie/${idMovie}/images`, {params: options})
-  }
+  
 }
