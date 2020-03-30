@@ -80,7 +80,12 @@ footer {
     color: #0654AE;
   }
   
-  footer a {
+  footer i {
+    padding: 10px;
+    color: #777676
+  }
+
+  .fa-icon{
     padding: 10px;
     color: #777676
   }
