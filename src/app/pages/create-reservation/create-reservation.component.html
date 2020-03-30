@@ -12,26 +12,26 @@
                     <div fxLayout="column">
                         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
                             <div fxFlex="50">
-                                <input type="text" id="name"  class="validate" placeholder="Nome" formControlName='name'>
+                                <input type="text" id="name"  class="form-control" placeholder="Nome" formControlName='name'>
                                 <app-error-form [control]="form.get('name')" label="Nome"></app-error-form>
                             </div>
                             <div fxFlex="50">
-                                <input type="text" id="lastName"  class="validate" placeholder="Último Nome" formControlName='lastName'>
+                                <input type="text" id="lastName"  class="form-control" placeholder="Último Nome" formControlName='lastName'>
                                 <app-error-form [control]="form.get('lastName')" label="Último Nome"></app-error-form>
                             </div>
                         </div>
                         <div fxLayout="row" fxLayout.xs="column">
                             <div fxFlex="50">
-                                <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf' maxlength="14" mask="000.000.000-00">
+                                <input type="text" id="cpf" class="form-control" placeholder="CPF" formControlName='cpf' maxlength="14" mask="000.000.000-00">
                                 <app-error-form [control]="form.get('cpf')" label="CPF"></app-error-form>
                             </div>
                             <div fxFlex="50">
-                                <input type="date" id="birthDate" class="validate" placeholder="Data de Nascimento" formControlName='birthDate' >
+                                <input type="date" id="birthDate" class="form-control" placeholder="Data de Nascimento" formControlName='birthDate' >
                                 <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
                             </div>
                         </div>
                         <div class="input-group" fxFlex="100" [ngClass]="aplicaCssErro('email')">
-                            <input type="email" id="email"  class="validate" placeholder="nome@email.com" formControlName="email">
+                            <input type="email" id="email"  class="form-control" placeholder="nome@email.com" formControlName="email">
                             <app-error-form [control]="form.get('email')" label="Email"></app-error-form>
                         </div>
                         <div class="input-group">
@@ -45,26 +45,26 @@
                                 <div fxLayout="column">
                                   <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
                                       <div fxFlex="50">
-                                          <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
+                                          <input type="text" id="nameWife" class="form-control" placeholder="Nome" formControlName="nameWife">
                                           <app-error-form [control]="form.get('formWife.nameWife')" label="CPF"></app-error-form>
                                       </div>
                                       <div fxFlex="50">
-                                          <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
+                                          <input type="text" id="lastNameWife" class="form-control" placeholder="Último Nome" formControlName="lastNameWife">
                                           <app-error-form [control]="form.get('formWife.lastNameWife')" label="Último Nome"></app-error-form>
                                       </div>
                                   </div>
                                   <div fxLayout="row" fxLayout.xs="column">
                                       <div fxFlex="50">
-                                          <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="14" mask="000.000.000-00">
+                                          <input type="text" id="cpfWife" class="form-control" placeholder="CPF" formControlName="cpfWife" maxlength="14" mask="000.000.000-00">
                                           <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
                                       </div>
                                       <div fxFlex="50">
-                                          <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
+                                          <input type="date" id="birthDateWife" class="form-control" placeholder="Data de Nascimento" formControlName="birthDateWife">
                                           <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
                                       </div>
                                   </div>
                                   <div class="form-group" fxFlex="100">
-                                      <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
+                                      <input type="email" id="emailWife" class="form-control" placeholder="E-mail" formControlName="emailWife">
                                       <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
                                   </div>
                                 </div>
@@ -82,7 +82,7 @@
                         [disabled]="!form?.valid">ENVIAR</button>
                  </div>
             </div>
-            <div class="content-checkout-payment" fxFlex="35">
+            <div class="content-ticket" fxFlex="35">
                 <div class="header-ingresso">
                   <h3>SEU INGRESSO</h3>
                 </div>
@@ -99,7 +99,7 @@
                     <div fxLayout="column">
                         <h3 class="title-ingresso">Ingresso</h3>
                         <p>Filme: {{titleMovie}}</p>
-                        <p class="valor-filme"><b>R$ {{valueMovie}}</b></p>
+                        <p class="value-movie"><b>R$ {{valueMovie}}</b></p>
                      </div> 
                 </div>
                 <div class="content-ingresso" fxLayout="column">
@@ -116,8 +116,8 @@
                     </div>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="space-between center" class="content-total">
-                    <p class="sub-title-total">Total</p>
-                    <p class="valor-filme">R$ {{valueMovie + valueFrete}}</p>
+                    <p class="sub-title-total">TOTAL</p>
+                    <p class="value-movie"><b>R$ {{valueMovie + valueFrete}}</b></p>
                   </div>
                 </div>
               </div>

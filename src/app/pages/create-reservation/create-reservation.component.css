@@ -29,7 +29,7 @@
 }
 .container-formWife {
     padding-top: 20px;
-    }
+}
 
 .header-form {
     padding-bottom: 40px;
@@ -70,6 +70,31 @@
   height: 80px;
   left:25%;
   position: relative;
+}
+
+.container-ingresso {
+  margin: 20px;
+  border-bottom: #cfcece 1px solid;
+  padding-bottom: 15px;
+}
+
+.content-ingresso {
+  margin: 20px;
+  padding-bottom: 15px;
+}
+
+.value-movie {
+  color: #3d59f5;
+  margin-top: 25px;
+}
+
+.sub-title-value {
+  font-weight: 450;
+  font-weight: bold;
+}
+
+.sub-title-total {
+  font-weight: 700;
 }
 
 footer {
