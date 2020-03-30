@@ -3,12 +3,12 @@ import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import {Reservation} from '../../core/entities/reservation';
 import { environment } from '../../../environments/environment';
 import { Movie } from '../../core/entities/movie';
-import { ApiMoviedb } from 'src/app/moviedb-config-sample';
+import { ApiMovieDBConfig } from 'src/app/moviedb-config-sample';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CreateReservationService extends ApiMoviedb {
+export class CreateReservationService extends ApiMovieDBConfig {
   private readonly API = `${environment.API}`;
 
   constructor(private http: HttpClient) { super() }
