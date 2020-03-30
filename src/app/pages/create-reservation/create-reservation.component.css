@@ -6,25 +6,22 @@
     margin: 30px;
   }
 
-.validate {
+  .field {
+    width: 100%;
     padding: 10px;
-    border: none;
-    border-bottom: 2px solid #ddd;
-    border-radius: 0;
-    outline: none;
-    height: 50px;
-}
+  }
+  
+  .field-100 {
+    width: 100%;
+  }
 
 .content-form {
     border-right: 1px solid #f1f1f1
   }
 
 .btn-cadastro {
-    width: 30%;
-    display: block;
-    margin: 0 auto;
     padding: 10px;
-    background-color: #0003af;
+    color: #0003af;
     font-weight: bold;
 }
 .container-formWife {

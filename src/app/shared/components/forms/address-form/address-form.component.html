@@ -1,30 +1,45 @@
 <div [formGroup]="enderecoForm">
     <div fxLayout="column">
-        <div fxFlex="100" [ngClass]="aplicaCssErro('enderecoForm.cep')">
-            <input type="text" class="form-control" id="cep"
-                formControlName="cep" placeholder="CEP" (blur)="consultaCEP()" maxlength="10" mask="00.000-000">
-            <app-campo-erro-form
-                [mostrarErro]="verificaValidTouched('enderecoForm.cep')"
-                msgErro="CEP é obrigatório.">
-            </app-campo-erro-form>   
+        <div fxFlex="100" class="field" [ngClass]="aplicaCssErro('enderecoForm.cep')">
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="CEP" formControlName="cep" (blur)="consultaCEP()" mask="00.000-000">
+                <app-campo-erro-form
+                    [mostrarErro]="verificaValidTouched('enderecoForm.cep')"
+                    msgErro="CEP é obrigatório.">
+                </app-campo-erro-form>   
+            </mat-form-field>
         </div> 
-        <div fxLayout.xs="column" fxFlex="100">
-            <input type="text" id="address" class="form-control" placeholder="Endereço" formControlName='address'>
-            <app-error-form [control]="enderecoForm.get('address')" label="Endereço"></app-error-form>
+        <div class="field" fxFlex="100" >
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Endereço" formControlName="address">
+                <app-error-form [control]="enderecoForm.get('address')" label="Endereço"></app-error-form>
+            </mat-form-field>
         </div>
         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
-            <div fxFlex="50">
-                <input type="text" id="country" class="form-control" placeholder="País" formControlName='country'>
-                <app-error-form [control]="enderecoForm.get('country')" label="País"></app-error-form>
+            <div class="field" fxFlex="50" >
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="País" formControlName="country">
+                    <app-error-form [control]="enderecoForm.get('country')" label="País"></app-error-form>
+                </mat-form-field>
             </div>
-            <div fxFlex="50">
-                <input type="text" id="state"  class="form-control" placeholder="Estado" formControlName='state'>
-                <app-error-form [control]="enderecoForm.get('state')" label="Estado"></app-error-form>
+            <div fxFlex="50" class="field">
+                <mat-form-field appearance="outline" class="field-100">
+                    <input matInput placeholder="Estado" formControlName="state">
+                    <app-error-form [control]="enderecoForm.get('state')" label="Estado"></app-error-form>
+                </mat-form-field>
             </div>
         </div>
-        <div fxLayout.xs="column" fxFlex="100" >
-            <input type="text" id="telephone"  class="form-control" placeholder="Telefone" formControlName='telephone' maxlength="15" mask="(00)0000?9-0000">
-            <app-error-form [control]="enderecoForm.get('telephone')" label="Telefone"></app-error-form>
+        <div class="field" fxFlex="100" >
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Cidade" formControlName="city">
+                <app-error-form [control]="enderecoForm.get('city')" label="Cidade"></app-error-form>
+            </mat-form-field>
+        </div>
+        <div class="field" fxFlex="100" >
+            <mat-form-field appearance="outline" class="field-100">
+                <input matInput placeholder="Telefone" formControlName="telephone">
+                <app-error-form [control]="enderecoForm.get('telephone')" label="Telefone"></app-error-form>
+            </mat-form-field>
         </div>
     </div>
 </div>

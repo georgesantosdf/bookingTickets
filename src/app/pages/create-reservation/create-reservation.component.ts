@@ -111,8 +111,8 @@ export class CreateReservationComponent  implements OnInit {
       this.imageMovie = this.movie.results[0].poster_path;
   }
 
-  onChecked(e: { target: { checked: boolean; }; }){
-    this.isChecked= e.target.checked;
+  onChecked(){
+    this.isChecked= !this.isChecked;
     if( this.isChecked){
       this.form.get('formWife').get('nameWife').setValidators([
         Validators.required,
@@ -132,7 +132,7 @@ export class CreateReservationComponent  implements OnInit {
       this.form.get('formWife').get('birthDateWife').setValidators([Validators.required]); 
 
     }else{
-        this.form.get('formWife').clearValidators;
+      this.form.removeControl('formWife');
     }
     this.form.get('formWife').updateValueAndValidity;
   }
@@ -186,7 +186,7 @@ export class CreateReservationComponent  implements OnInit {
           res => {
             alert(`Reserva de Filme cadastrado com sucesso.`);
           },
-          err => {  alert(`Erro ao cadastrar a reserva: ${err}`); }
+          err => {  alert(`Erro ao cadastrar a reserva: ${err.message}`); }
         );
       this.form.reset();
     }else {

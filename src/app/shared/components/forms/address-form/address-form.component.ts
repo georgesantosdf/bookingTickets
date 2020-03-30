@@ -38,6 +38,9 @@ export class AddressFormComponent implements OnInit {
       state: ['', [
         Validators.required
       ]],
+      city: ['', [
+        Validators.required
+      ]],
       telephone: ['', [
         Validators.required
       ]]
@@ -60,10 +63,11 @@ export class AddressFormComponent implements OnInit {
           address: dados.logradouro,
           country:  dados.localidade,
           state: dados.uf,
+          city: dados.localidade,
           telephone: ''
       });
 
-    this.address = new Address(dados.cep, dados.address, dados.country, dados.state, dados.telephone);
+    this.address = new Address(dados.cep, dados.logradouro, dados.localidade, dados.uf, dados.telephone);
   }
 
   verificaValidTouched(campo:any) {
