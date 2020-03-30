@@ -40,29 +40,31 @@
                         <div *ngIf="isChecked" formGroupName="formWife" style="padding: 10px;"> 
                             <div class="container-formWife">
                                 <h3>ACOMPANHANTE 1</h3>
-                                <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
-                                    <div fxFlex="50">
-                                        <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
-                                        <app-error-form [control]="form.get('formWife.nameWife')" label="CPF"></app-error-form>
-                                    </div>
-                                    <div fxFlex="50">
-                                        <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
-                                        <app-error-form [control]="form.get('formWife.lastNameWife')" label="Último Nome"></app-error-form>
-                                    </div>
-                                </div>
-                                <div fxLayout="row" fxLayout.xs="column">
-                                    <div fxFlex="50">
-                                        <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
-                                        <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
-                                    </div>
-                                    <div fxFlex="50">
-                                        <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
-                                        <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
-                                    </div>
-                                </div>
-                                <div class="form-group" fxFlex="100">
-                                    <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
-                                    <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
+                                <div fxLayout="column">
+                                  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+                                      <div fxFlex="50">
+                                          <input type="text" id="nameWife" class="validate" placeholder="Nome" formControlName="nameWife">
+                                          <app-error-form [control]="form.get('formWife.nameWife')" label="CPF"></app-error-form>
+                                      </div>
+                                      <div fxFlex="50">
+                                          <input type="text" id="lastNameWife" class="validate" placeholder="Último Nome" formControlName="lastNameWife">
+                                          <app-error-form [control]="form.get('formWife.lastNameWife')" label="Último Nome"></app-error-form>
+                                      </div>
+                                  </div>
+                                  <div fxLayout="row" fxLayout.xs="column">
+                                      <div fxFlex="50">
+                                          <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
+                                          <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
+                                      </div>
+                                      <div fxFlex="50">
+                                          <input type="date" id="birthDateWife" class="validate" placeholder="Data de Nascimento" formControlName="birthDateWife">
+                                          <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
+                                      </div>
+                                  </div>
+                                  <div class="form-group" fxFlex="100">
+                                      <input type="email" id="emailWife" class="validate" placeholder="E-mail" formControlName="emailWife">
+                                      <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
+                                  </div>
                                 </div>
                             </div>
                         </div>
