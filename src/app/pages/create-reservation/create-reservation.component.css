@@ -59,6 +59,10 @@
    padding-left: 20px;
    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.img-poster {
+  height: 150px;
+  background: linear-gradient(0deg,#000 100%);
+}
 
 footer {
     margin: 30px;

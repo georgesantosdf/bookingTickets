@@ -81,29 +81,38 @@
                 <div class="header-ingresso">
                   <h3>SEU INGRESSO</h3>
                 </div>
-                <div class="container-ingresso" fxLayout="row" fxLayoutAlign="space-evenly start">
-                  <img class="img-poster" src="" alt="poster do filme selecionado">
-                  <div fxLayout="column">
-                    <h3 class="title-ingresso">Ingresso</h3>
-                    <p>Filme: george filme</p>
-                    <p class="valor-filme"><b>R$ 1</b></p>
-                  </div>
+               <!-- <div class="container-ingresso" fxLayout="row" fxLayoutAlign="space-evenly start" *ngFor="let movie of movie.results">
+                        <img class="img-poster" src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" alt="poster do filme selecionado">
+                        <div fxLayout="column">
+                            <h3 class="title-ingresso">Ingresso</h3>
+                            <p>Filme: {{movie.title}}</p>
+                            <p class="valor-filme"><b>R$ {{valueMovie}}</b></p>
+                         </div> 
+                </div>-->
+                <div class="container-ingresso" fxLayout="row" fxLayoutAlign="space-evenly start" >
+                    <img class="img-poster" src="https://image.tmdb.org/t/p/original{{imageMovie}}" alt="poster do filme selecionado">
+                    <div fxLayout="column">
+                        <h3 class="title-ingresso">Ingresso</h3>
+                        <p>Filme: {{titleMovie}}</p>
+                        <p class="valor-filme"><b>R$ {{valueMovie}}</b></p>
+                     </div> 
                 </div>
                 <div class="content-ingresso" fxLayout="column">
                   <div class="content-value">
                     <div fxLayout="row" fxLayoutAlign="space-between center" >
                       <p class="sub-title-value">Sub total</p>
                       <div fxLayout="column">
-                        <p>R$ 1</p>
+                        <p>R$ {{valueMovie}}</p>
                       </div>
                     </div>
                     <div fxLayout="row" fxLayoutAlign="space-between center" >
                       <p class="sub-title-value">Frete</p>
-                      <p>R$ 1</p>
+                      <p>R$ {{ valueFrete }}</p>
                     </div>
                   </div>
                   <div fxLayout="row" fxLayoutAlign="space-between center" class="content-total">
                     <p class="sub-title-total">Total</p>
+                    <p class="valor-filme">R$ {{valueMovie + valueFrete}}</p>
                   </div>
                 </div>
               </div>

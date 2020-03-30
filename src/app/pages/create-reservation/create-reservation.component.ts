@@ -19,6 +19,10 @@ export class CreateReservationComponent  implements OnInit {
   checkBox  = false;
  
   movie: Movie;
+  imageMovie: string;
+  valueMovie:number;
+  valueFrete:number;
+  titleMovie:string;
 
   reservation: Reservation;
 
@@ -28,8 +32,14 @@ export class CreateReservationComponent  implements OnInit {
   ) {  }
 
   ngOnInit(): void {
+    this.setForm();
     this.obterMovieDB();
 
+    this.valueMovie = 100;
+    this.valueFrete = 2;
+  }
+
+  setForm(){
     this.form = this.formBuilder.group({
       name: [null,  Validators.compose([
         Validators.required,
@@ -76,7 +86,13 @@ export class CreateReservationComponent  implements OnInit {
   }
 
   popularMovie(data:any){
+     const language = "pt_BR";
       this.movie = data;
+      this.titleMovie = this.movie.results[0].title;
+      this.imageMovie = this.movie.results[0].poster_path;
+   /** this.createReservationService.getImagesByMovie(this.movie.results[0].id, language).subscribe
+      ((res: any) => {
+        this.imageMovie = res.posters[0].file_path},  (error: any) => console.log('erro ao consultar imagem'));*/ 
   }
 
   onChecked(e: { target: { checked: boolean; }; }){
