@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { AddressFormService } from './address-form.service';
 import { Address } from 'src/app/core/entities/address';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
@@ -12,7 +12,7 @@ import { FormValidations } from '../erro-form/form-validations';
 export class AddressFormComponent implements OnInit {
   @Input() address:Address;
 
-  @Input() form: FormGroup;
+  @Output('form') form: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
   enderecoForm:FormGroup;
 
@@ -31,10 +31,18 @@ export class AddressFormComponent implements OnInit {
       address: ['', [
         Validators.required
       ]],
-      country: [''],
-      state: [''],
-      telephone: ['']
+      country: ['', [
+        Validators.required
+      ]],
+      state: ['', [
+        Validators.required
+      ]],
+      telephone: ['', [
+        Validators.required
+      ]]
     });
+
+    this.form.emit(this.enderecoForm);
   }
 
   consultaCEP(){
@@ -54,8 +62,6 @@ export class AddressFormComponent implements OnInit {
           telephone: ''
       });
 
-    this.form.get('addressForm').setValue(this.enderecoForm);
-    
     this.address = new Address(dados.cep, dados.address, dados.country, dados.state, dados.telephone);
   }
 

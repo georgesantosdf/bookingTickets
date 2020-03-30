@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgxMaskModule } from 'ngx-mask';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateReservationComponent } from './pages/create-reservation/create-reservation.component';
@@ -29,6 +31,7 @@ import { HttpsRequestInterceptor } from './core/interceptors/httpsRequestInterce
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule    

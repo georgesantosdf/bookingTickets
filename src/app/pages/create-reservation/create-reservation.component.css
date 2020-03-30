@@ -64,6 +64,14 @@
   background: linear-gradient(0deg,#000 100%);
 }
 
+.logo-header {
+  width: 500px ;
+  display: flex;
+  height: 80px;
+  left:25%;
+  position: relative;
+}
+
 footer {
     margin: 30px;
     border-bottom: #cfcece 1px solid;
@@ -80,7 +88,7 @@ footer {
   .logo-footer {
     width: 200px ;
   }
-  
+ 
   .addres-footer {
     margin-right: 40px;
     text-align: left;

@@ -136,7 +136,10 @@ export class CreateReservationComponent  implements OnInit {
     if (this.form.valid) {
       const dadosFormulario = this.form.value;
 
-      const dadosFormularioForWife = this.form.get('forWife').value;
+      let dadosFormularioForWife: { nameWife: string; lastNameWife: string; cpfWife: string; birthDateWife: string; emailWife: string; };
+      if(this.form.get('forWife')){
+        const dadosFormularioForWife = this.form.get('forWife').value;
+      }
 
       const dadosFormularioAddress = this.form.get('addressForm').value;
 
@@ -155,16 +158,13 @@ export class CreateReservationComponent  implements OnInit {
         dadosFormulario.birthDate,
         dadosFormulario.email,
 
-        dadosFormularioForWife.nameWife,
-        dadosFormularioForWife.lastNameWife,
-        dadosFormularioForWife.cpfWife,
-        dadosFormularioForWife.birthDateWife,
-        dadosFormularioForWife.emailWife,
+        dadosFormularioForWife?.nameWife,
+        dadosFormularioForWife?.lastNameWife,
+        dadosFormularioForWife?.cpfWife,
+        dadosFormularioForWife?.birthDateWife,
+        dadosFormularioForWife?.emailWife,
         address
       );
-
-      
-
       this.createReservationService.createReservation(reservation)
         .subscribe(
           res => {

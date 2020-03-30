@@ -1,4 +1,6 @@
 <div class="container">
+        <img class="logo-header" src="../../../assets/otech.png" alt="Logo da otech" >
+        <br/><br/>
     <div class="header-form">
         <h2>FORMULÀRIO</h2>
         <div fxLayout="row" fxLayout.xs="column">
@@ -6,7 +8,7 @@
                 <div class="header-dados-pessoais">
                   <h3>DADOS PESSOAIS</h3>
                 </div>
-                <form  [formGroup]="form" class="mt-5" (ngSubmit)="enviarDados()">
+                <form  [formGroup]="form" class="mt-5">
                     <div fxLayout="column">
                         <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
                             <div fxFlex="50">
@@ -20,7 +22,7 @@
                         </div>
                         <div fxLayout="row" fxLayout.xs="column">
                             <div fxFlex="50">
-                                <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf' maxlength="11">
+                                <input type="text" id="cpf" class="validate" placeholder="CPF" formControlName='cpf' maxlength="14" mask="000.000.000-00">
                                 <app-error-form [control]="form.get('cpf')" label="CPF"></app-error-form>
                             </div>
                             <div fxFlex="50">
@@ -53,7 +55,7 @@
                                   </div>
                                   <div fxLayout="row" fxLayout.xs="column">
                                       <div fxFlex="50">
-                                          <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="11">
+                                          <input type="text" id="cpfWife" class="validate" placeholder="CPF" formControlName="cpfWife" maxlength="14" mask="000.000.000-00">
                                           <app-error-form [control]="form.get('formWife.cpfWife')" label="CPF"></app-error-form>
                                       </div>
                                       <div fxFlex="50">
@@ -71,13 +73,14 @@
 
                         <div class="mt-5" formGroupName="addressForm" style="padding: 10px;">
                             <h3>DADOS DA ENTREGA</h3>
-                            <address-form [form]="form"></address-form>
+                            <address-form (form)="form?.setControl('addressForm', $event)"></address-form>
                         </div>
                     </div> 
                 </form>
-                        <button type="submit" class="btn btn-cadastro btn-lg"
-                        [disabled]="!form.valid">ENVIAR</button>
-                  
+                <div fxLayout="row" fxLayoutAlign="end center">
+                        <button type="button" (click)="enviarDados()"  class="btn btn-cadastro btn-lg"
+                        [disabled]="!form?.valid">ENVIAR</button>
+                 </div>
             </div>
             <div class="content-checkout-payment" fxFlex="35">
                 <div class="header-ingresso">
