@@ -58,13 +58,30 @@ export class FormValidations {
     return null;
   }
 
+  static validaEmail(control: AbstractControl) {
+
+    const email = control.value;
+    let valido: boolean;
+    const regex = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$");
+    
+    if(!regex.test(email)){
+      valido = false;
+    }else{
+      valido = true;
+    }
+    
+    if (valido) return null;
+
+    return { emailInvalido: true };
+  }
+
   static getErrorMsg(fieldName: string, validatorName: string, validatorValue?: any) {
     const config = {
       'required': `${fieldName} é obrigatório.`,
       'minlength': `${fieldName} precisa ter no mínimo ${validatorValue.requiredLength} caracteres.`,
       'maxlength': `${fieldName} precisa ter no máximo ${validatorValue.requiredLength} caracteres.`,
       'cepInvalido': 'CEP inválido.',
-      'emailInvalido': 'Email já cadastrado!',
+      'emailInvalido': 'Email inválido!',
       'cpfInvalido': 'CPF inválido'
     };
 

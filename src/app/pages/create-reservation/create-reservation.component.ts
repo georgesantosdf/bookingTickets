@@ -1,5 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { finalize } from 'rxjs/operators';
 
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
@@ -11,11 +12,17 @@ import { Reservation } from '../../core/entities/reservation';
 import { Address } from '../../core/entities/address';
 import { Movie } from '../../core/entities/movie';
 import { FormValidations } from '../../shared/validators/form-validations';
+import { PickDateAdapter, APP_DATE_FORMATS } from '../../shared/components/pickDateAdapter/pick-Date-Adapter';
+
 
 @Component({
   selector: 'app-create-reservation',
   templateUrl: './create-reservation.component.html',
-  styleUrls: ['./create-reservation.component.css']
+  styleUrls: ['./create-reservation.component.css'],
+  providers: [
+    {provide: DateAdapter, useClass: PickDateAdapter},
+    {provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS}
+]
 })
 export class CreateReservationComponent  implements OnInit {
   @Output() address: Address;
@@ -23,6 +30,11 @@ export class CreateReservationComponent  implements OnInit {
   form: FormGroup;
   isChecked = false;
   checkBox  = false;
+
+  minDate = new Date(1900, 0, 1);
+  maxDate = new Date(2020,0,1);
+
+  date : any;
 
   faTwitter = faTwitter;
   faLinkedinIn = faLinkedinIn;
@@ -63,7 +75,7 @@ export class CreateReservationComponent  implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(100)
       ])],
-      email: [null, Validators.compose([Validators.email])],
+      email: [null, Validators.compose([Validators.required, FormValidations.validaEmail])],
       cpf: [null, Validators.compose([Validators.required, FormValidations.ValidaCpf])],
       birthDate: [null, [
         Validators.required
@@ -126,7 +138,7 @@ export class CreateReservationComponent  implements OnInit {
       ]); 
       this.form.get('formWife').get('emailWife').setValidators([
         Validators.required,
-        Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+        FormValidations.validaEmail
       ]); 
       this.form.get('formWife').get('cpfWife').setValidators([Validators.required, FormValidations.ValidaCpf]); 
       this.form.get('formWife').get('birthDateWife').setValidators([Validators.required]); 
@@ -203,6 +215,4 @@ export class CreateReservationComponent  implements OnInit {
       }
     });
   }
-
-
 }

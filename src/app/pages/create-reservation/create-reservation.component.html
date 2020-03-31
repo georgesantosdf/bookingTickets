@@ -33,19 +33,22 @@
                               </mat-form-field> 
                             </div>
                             <div fxFlex="50" class="field">
-                                <mat-form-field appearance="outline" class="field-100">
-                                  <mat-label>Data de Nascimento</mat-label>
-                                  <input matInput [matDatepicker]="picker" formControlName="birthDate">
-                                  <mat-datepicker-toggle matSuffix [for]="picker">
-                                  </mat-datepicker-toggle>
-                                  <mat-datepicker #picker></mat-datepicker>
-                                  <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
-                                </mat-form-field>
+                              <mat-form-field appearance="outline" class="field-100">
+                                <mat-label>Data de Nascimento</mat-label>
+                                <input matInput [matDatepicker]="picker" 
+                                formControlName="birthDate"
+                                [min]="minDate"
+                                [max]="maxDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                </mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                                <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
+                              </mat-form-field>
                             </div>
                         </div>
-                        <div class="field" fxFlex="100" [ngClass]="aplicaCssErro('email')">
+                        <div class="field" fxFlex="100" >
                             <mat-form-field appearance="outline" class="field-100">  
-                              <input matInput placeholder="nome@email.com" formControlName="email" >
+                              <input matInput placeholder="Email" formControlName="email" >
                               <app-error-form [control]="form.get('email')" label="Email"></app-error-form>
                             </mat-form-field>
                         </div>
@@ -82,17 +85,21 @@
                                       <div fxFlex="50" class="field">
                                           <mat-form-field appearance="outline" class="field-100">
                                             <mat-label>Data de Nascimento</mat-label>
-                                            <input matInput [matDatepicker]="picker" formControlName="birthDateWife">
+                                            <input matInput 
+                                                    [matDatepicker]="picker" 
+                                                    formControlName="birthDateWife"
+                                                    [min]="minDate"
+                                                    [max]="maxDate">
                                             <mat-datepicker-toggle matSuffix [for]="picker">
                                             </mat-datepicker-toggle>
                                             <mat-datepicker #picker></mat-datepicker>
-                                            <app-error-form [control]="form.get('birthDate')" label="Data de Nascimento"></app-error-form>
+                                            <app-error-form [control]="form.get('formWife.birthDateWife')" label="Data de Nascimento"></app-error-form>
                                           </mat-form-field>
                                       </div>
                                   </div>
                                   <div fxFlex="50" class="field">
                                       <mat-form-field appearance="outline" class="field-100">
-                                        <input matInput placeholder="nome@email.com" formControlName="emailWife" >
+                                        <input matInput placeholder="Email" formControlName="emailWife" >
                                         <app-error-form [control]="form.get('formWife.emailWife')" label="Email"></app-error-form>
                                       </mat-form-field>  
                                   </div>
