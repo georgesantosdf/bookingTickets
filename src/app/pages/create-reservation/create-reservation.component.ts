@@ -146,7 +146,6 @@ export class CreateReservationComponent  implements OnInit {
     }else{
       this.form.removeControl('formWife');
     }
-    this.form.get('formWife').updateValueAndValidity;
   }
 
   verificaValidTouched(campo) {
